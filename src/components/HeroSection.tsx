@@ -57,7 +57,12 @@ const HeroSection = () => {
               <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 bg-white rounded-xl p-4 shadow-lg animate-float">
                 <div className="flex items-center space-x-2">
                   <div className="bg-primary/10 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M20.94 15.84A8 8 0 0 0 6.78 9.3a8 8 0 0 0-3.51 8.27c.19.74.5 1.44.89 2.1.39.67.84 1.35.84 2.08 0 1.53-.63 2.25-1.33 2.93"/><path d="M11.29 12.75a6.5 6.5 0 0 0 8.42 9.88c.8-.55 1.67-1.23 1.67-2.37 0-.83-.39-1.55-.8-2.26a9.5 9.5 0 0 1-1.02-2.31 10.5 10.5 0 0 1-.69-4.81"/><path d="M14.91 5.83a8 8 0 0 0-10.45 9.47 9.1 9.1 0 0 1 .87 2.69c0 1.14-.86 1.82-1.67 2.37"/><path d="M7.23 10.26A6.5 6.5 0 0 0 9.7 20.86"</path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+                      <path d="M20.94 15.84A8 8 0 0 0 6.78 9.3a8 8 0 0 0-3.51 8.27c.19.74.5 1.44.89 2.1.39.67.84 1.35.84 2.08 0 1.53-.63 2.25-1.33 2.93" />
+                      <path d="M11.29 12.75a6.5 6.5 0 0 0 8.42 9.88c.8-.55 1.67-1.23 1.67-2.37 0-.83-.39-1.55-.8-2.26a9.5 9.5 0 0 1-1.02-2.31 10.5 10.5 0 0 1-.69-4.81" />
+                      <path d="M14.91 5.83a8 8 0 0 0-10.45 9.47a9.1 9.1 0 0 1 .87 2.69c0 1.14-.86 1.82-1.67 2.37" />
+                      <path d="M7.23 10.26A6.5 6.5 0 0 0 9.7 20.86" />
+                    </svg>
                   </div>
                   <div>
                     <p className="text-sm font-medium">Farm Fresh</p>
@@ -69,7 +74,10 @@ const HeroSection = () => {
               <div className="absolute -top-6 -right-6 md:-top-8 md:-right-8 bg-white rounded-xl p-4 shadow-lg animate-float delay-300">
                 <div className="flex items-center space-x-2">
                   <div className="bg-primary/10 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><circle cx="12" cy="12" r="10"/><path d="m8 14 2.5 2.5 5-5"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="m8 14 2.5 2.5 5-5"/>
+                    </svg>
                   </div>
                   <div>
                     <p className="text-sm font-medium">100% Plant-Based</p>
