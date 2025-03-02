@@ -24,7 +24,7 @@ const Index = () => {
       <div className="fixed inset-0 flex items-center justify-center bg-background">
         <div className="flex flex-col items-center">
           <div className="h-12 w-12 rounded-full border-2 border-primary border-t-transparent animate-spin"></div>
-          <p className="mt-4 text-muted-foreground animate-pulse">Loading Greens...</p>
+          <p className="mt-4 text-muted-foreground animate-pulse">Loading Aahaar...</p>
         </div>
       </div>
     );

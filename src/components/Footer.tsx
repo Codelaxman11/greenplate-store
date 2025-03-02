@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Logo and About */}
           <div className="md:col-span-1">
             <Link to="/" className="inline-block mb-4">
-              <span className="font-semibold text-2xl">Greens</span>
+              <span className="font-semibold text-2xl">Aahaar</span>
             </Link>
             <p className="text-muted-foreground mb-4">
               Healthy, sustainably sourced plant-based foods delivered to your door.
@@ -66,7 +66,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            &copy; {currentYear} Greens. All rights reserved.
+            &copy; {currentYear} Aahaar. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <img src="https://static.vecteezy.com/system/resources/previews/022/100/686/original/visa-mastercard-logos-transparent-background-free-png.png" alt="Payment methods" className="h-8" />

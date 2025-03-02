@@ -40,7 +40,7 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="font-semibold text-xl lg:text-2xl">Greens</span>
+          <span className="font-semibold text-xl lg:text-2xl">Aahaar</span>
         </Link>
 
         {/* Desktop Navigation */}
