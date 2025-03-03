@@ -36,7 +36,7 @@ const CategorySection = () => {
                 <h3 className="text-white text-xl font-medium mb-1">{category.name}</h3>
                 <p className="text-white/80 text-sm mb-4">{category.description}</p>
                 <span className="inline-flex items-center text-white text-sm font-medium">
-                  Shop Now 
+                  Order Now 
                   <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
