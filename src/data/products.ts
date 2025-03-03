@@ -1,4 +1,3 @@
-
 import { Product } from '@/types';
 
 export const products: Product[] = [
@@ -129,6 +128,102 @@ export const products: Product[] = [
       carbs: 28,
       fat: 12
     }
+  },
+  {
+    id: "9",
+    name: "Vegetable Biryani",
+    description: "Fragrant basmati rice cooked with mixed vegetables, saffron, and aromatic spices",
+    price: 14.99,
+    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7",
+    category: "indian",
+    featured: true,
+    inStock: 18,
+    nutrition: {
+      calories: 450,
+      protein: 12,
+      carbs: 65,
+      fat: 16
+    }
+  },
+  {
+    id: "10",
+    name: "Chana Masala",
+    description: "Spiced chickpeas simmered in a tangy tomato sauce with ginger and garlic",
+    price: 11.99,
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641",
+    category: "indian",
+    featured: false,
+    inStock: 22,
+    nutrition: {
+      calories: 380,
+      protein: 15,
+      carbs: 52,
+      fat: 9
+    }
+  },
+  {
+    id: "11",
+    name: "Vegetable Samosas",
+    description: "Crispy pastry triangles filled with spiced potatoes and peas",
+    price: 8.99,
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950",
+    category: "indian",
+    featured: true,
+    inStock: 25,
+    nutrition: {
+      calories: 320,
+      protein: 6,
+      carbs: 42,
+      fat: 14
+    }
+  },
+  {
+    id: "12",
+    name: "Masala Dosa",
+    description: "Crispy fermented rice crepe filled with spiced potato filling, served with coconut chutney",
+    price: 13.99,
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc",
+    category: "indian",
+    featured: false,
+    inStock: 15,
+    nutrition: {
+      calories: 360,
+      protein: 8,
+      carbs: 60,
+      fat: 10
+    }
+  },
+  {
+    id: "13",
+    name: "Vegetable Korma",
+    description: "Mixed vegetables in a rich, creamy cashew and coconut sauce with mild spices",
+    price: 12.99,
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356c36",
+    category: "indian",
+    featured: false,
+    inStock: 20,
+    nutrition: {
+      calories: 410,
+      protein: 10,
+      carbs: 36,
+      fat: 28
+    }
+  },
+  {
+    id: "14",
+    name: "Mango Lassi",
+    description: "Refreshing yogurt drink blended with sweet mango pulp and a hint of cardamom",
+    price: 5.99,
+    image: "https://images.unsplash.com/photo-1626200908320-d9948d66ba70",
+    category: "indian",
+    featured: true,
+    inStock: 30,
+    nutrition: {
+      calories: 220,
+      protein: 6,
+      carbs: 40,
+      fat: 4
+    }
   }
 ];
 
@@ -168,6 +263,12 @@ export const categories = [
     name: "Desserts",
     description: "Guilt-free treats to satisfy your sweet tooth",
     image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c"
+  },
+  {
+    id: "indian",
+    name: "Indian Cuisine",
+    description: "Authentic plant-based Indian delicacies",
+    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7"
   }
 ];
 
