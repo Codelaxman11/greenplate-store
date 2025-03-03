@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '@/types';
 import { Button } from '@/components/ui/button';
@@ -14,7 +14,11 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
+
+  // Check if this product is already in cart
+  const productInCart = cartItems.find(item => item.id === product.id);
+  const quantityInCart = productInCart ? productInCart.quantity : 0;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -24,6 +28,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
     
     setTimeout(() => {
       addToCart(product);
+      
+      console.log('Adding to cart:', product.name);
       
       toast({
         title: "Added to cart",
@@ -57,6 +63,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
               </span>
             </div>
           )}
+          {quantityInCart > 0 && (
+            <div className="absolute top-3 right-3">
+              <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                {quantityInCart} in cart
+              </span>
+            </div>
+          )}
         </div>
         
         <div className="p-4">
@@ -79,7 +92,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             ) : (
               <ShoppingCart className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
             )}
-            {isAdding ? "Added" : "Add to Cart"}
+            {quantityInCart > 0 ? `Add Another (${quantityInCart} in cart)` : "Add to Cart"}
           </Button>
         </div>
       </div>

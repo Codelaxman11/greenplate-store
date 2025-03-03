@@ -15,6 +15,12 @@ const Navbar = () => {
   
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
+  // Log cart updates for debugging
+  useEffect(() => {
+    console.log('Cart updated in Navbar:', cartItems);
+    console.log('Total items:', totalItems);
+  }, [cartItems, totalItems]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -71,10 +77,10 @@ const Navbar = () => {
               </Button>
             </Link>
           )}
-          <Link to="/cart" className="relative">
-            <ShoppingCart size={24} />
+          <Link to="/cart" className="relative group">
+            <ShoppingCart size={24} className="transition-transform group-hover:scale-110" />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center transition-all">
                 {totalItems}
               </span>
             )}
@@ -83,10 +89,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
-          <Link to="/cart" className="relative">
-            <ShoppingCart size={22} />
+          <Link to="/cart" className="relative group">
+            <ShoppingCart size={22} className="transition-transform group-hover:scale-110" />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center transition-all">
                 {totalItems}
               </span>
             )}
