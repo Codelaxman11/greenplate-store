@@ -1,23 +1,17 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     // Delay the animation slightly for a better effect
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
-
     return () => clearTimeout(timer);
   }, []);
-
-  return (
-    <section className="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-background to-secondary/30">
+  return <section className="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-background to-secondary/30">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center">
           {/* Text Content */}
@@ -27,9 +21,7 @@ const HeroSection = () => {
                 100% Plant-Based
               </span>
             </div>
-            <h1 className="text-balance font-semibold mb-4">
-              Nourish Your Body with Plant-Powered Goodness
-            </h1>
+            <h1 className="text-balance font-semibold mb-4">Nourish Your Body with Plant-Powered Goodness</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
               Discover delicious, chef-crafted vegan and vegetarian meals that make healthy eating effortless.
             </p>
@@ -49,11 +41,7 @@ const HeroSection = () => {
           {/* Image */}
           <div className={`mt-12 md:mt-0 md:w-1/2 transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=800&fit=crop&crop=focalpoint" 
-                alt="Healthy vegan food" 
-                className="rounded-2xl shadow-2xl object-cover"
-              />
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=800&fit=crop&crop=focalpoint" alt="Healthy vegan food" className="rounded-2xl shadow-2xl object-fill" />
               <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 bg-white rounded-xl p-4 shadow-lg animate-float">
                 <div className="flex items-center space-x-2">
                   <div className="bg-primary/10 rounded-full p-3">
@@ -75,8 +63,8 @@ const HeroSection = () => {
                 <div className="flex items-center space-x-2">
                   <div className="bg-primary/10 rounded-full p-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-                      <circle cx="12" cy="12" r="10"/>
-                      <path d="m8 14 2.5 2.5 5-5"/>
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m8 14 2.5 2.5 5-5" />
                     </svg>
                   </div>
                   <div>
@@ -91,9 +79,9 @@ const HeroSection = () => {
       </div>
       
       {/* Curved shape at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(70% 50% at 50% 100%)' }}></div>
-    </section>
-  );
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{
+      clipPath: 'ellipse(70% 50% at 50% 100%)'
+    }}></div>
+    </section>;
 };
-
 export default HeroSection;
