@@ -2,6 +2,7 @@
 import { ShoppingBag, Users, Package, Grid } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const AdminDashboard = () => {
   const dashboardCards = [
