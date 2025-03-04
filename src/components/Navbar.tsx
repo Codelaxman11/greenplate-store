@@ -53,15 +53,15 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-6">
           <Link to="/" className="link-hover font-medium">Home</Link>
           <Link to="/products" className="link-hover font-medium">Shop</Link>
+          <Link to="/how-we-cook" className="link-hover font-medium">How We Cook</Link>
           <Link to="/about" className="link-hover font-medium">About</Link>
-          <Link to="/contact" className="link-hover font-medium">Contact</Link>
         </nav>
 
         {/* Desktop Icons */}
         <div className="hidden md:flex items-center space-x-4">
           {user ? (
             <div className="flex items-center space-x-4">
-              <Link to={user.isAdmin ? "/dashboard" : "/account"} className="flex items-center space-x-1">
+              <Link to={user.isAdmin ? "/dashboard" : "/customer-dashboard"} className="flex items-center space-x-1">
                 <User size={20} />
                 <span className="font-medium">{user.name.split(' ')[0]}</span>
               </Link>
@@ -115,14 +115,14 @@ const Navbar = () => {
         <div className="flex flex-col p-8 space-y-6">
           <Link to="/" className="text-xl font-medium" onClick={closeMenu}>Home</Link>
           <Link to="/products" className="text-xl font-medium" onClick={closeMenu}>Shop</Link>
+          <Link to="/how-we-cook" className="text-xl font-medium" onClick={closeMenu}>How We Cook</Link>
           <Link to="/about" className="text-xl font-medium" onClick={closeMenu}>About</Link>
-          <Link to="/contact" className="text-xl font-medium" onClick={closeMenu}>Contact</Link>
           
           <div className="pt-6 border-t border-border">
             {user ? (
               <>
                 <Link 
-                  to={user.isAdmin ? "/dashboard" : "/account"}
+                  to={user.isAdmin ? "/dashboard" : "/customer-dashboard"}
                   className="flex items-center space-x-2 text-xl font-medium mb-4"
                   onClick={closeMenu}
                 >

@@ -5,25 +5,26 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { Eye, EyeOff, ChevronRight } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const Login = () => {
+const SignUp = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !password) {
+    if (!name || !email || !password) {
       toast({
         title: "Validation Error",
-        description: "Please enter both email and password.",
+        description: "Please fill all required fields.",
         variant: "destructive"
       });
       return;
@@ -31,13 +32,13 @@ const Login = () => {
     
     try {
       setIsLoading(true);
-      await login(email, password);
+      await register(name, email, password);
       navigate('/');
     } catch (error) {
-      console.error('Login error:', error);
+      console.error('Registration error:', error);
       toast({
-        title: "Login Failed",
-        description: error instanceof Error ? error.message : "Invalid email or password. Try admin@example.com or user@example.com with password 'password'",
+        title: "Sign Up Failed",
+        description: error instanceof Error ? error.message : "An error occurred during sign up.",
         variant: "destructive"
       });
     } finally {
@@ -50,10 +51,25 @@ const Login = () => {
       <Navbar />
       <div className="container max-w-md mx-auto pt-24 pb-16 px-4">
         <div className="bg-card rounded-lg shadow-md p-6 md:p-8">
-          <h1 className="text-2xl font-bold text-center mb-6">Sign In</h1>
+          <h1 className="text-2xl font-bold text-center mb-6">Create an Account</h1>
           
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-medium">
+                  Full Name
+                </label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="John Doe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={isLoading}
+                  autoComplete="name"
+                />
+              </div>
+              
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
                   Email
@@ -81,7 +97,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
-                    autoComplete="current-password"
+                    autoComplete="new-password"
                   />
                   <button
                     type="button"
@@ -100,37 +116,21 @@ const Login = () => {
               className="w-full mt-6"
               disabled={isLoading}
             >
-              {isLoading ? "Signing in..." : "Sign In"}
+              {isLoading ? "Creating Account..." : "Create Account"}
             </Button>
           </form>
-
+          
           <div className="mt-6 text-center text-sm">
             <p className="text-muted-foreground">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <Button 
                 variant="link" 
                 className="p-0 h-auto font-medium" 
-                onClick={() => navigate('/signup')}
+                onClick={() => navigate('/login')}
               >
-                Sign Up
+                Sign In
               </Button>
             </p>
-          </div>
-          
-          <div className="mt-6 text-center text-sm text-muted-foreground">
-            <p className="mb-4">Demo accounts:</p>
-            <div className="space-y-2">
-              <div className="p-3 bg-muted rounded-md text-left">
-                <p className="font-medium">Admin User</p>
-                <p>Email: admin@example.com</p>
-                <p>Password: password</p>
-              </div>
-              <div className="p-3 bg-muted rounded-md text-left">
-                <p className="font-medium">Regular User</p>
-                <p>Email: user@example.com</p>
-                <p>Password: password</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -139,4 +139,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

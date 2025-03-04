@@ -35,6 +35,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
+  // Load registered users from localStorage
+  const [registeredUsers, setRegisteredUsers] = useState<User[]>(() => {
+    const savedUsers = localStorage.getItem('registeredUsers');
+    return savedUsers ? JSON.parse(savedUsers) : [];
+  });
+
   // Save user to localStorage whenever it changes
   useEffect(() => {
     if (user) {
@@ -44,11 +50,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [user]);
 
+  // Save registered users to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+  }, [registeredUsers]);
+
   const login = async (email: string, password: string) => {
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // For demo purposes, check against hardcoded users
+    // Check against demo users first
     const demoUser = DEMO_USERS.find(u => u.email.toLowerCase() === email.toLowerCase());
     
     if (demoUser && password === 'password') {
@@ -56,6 +67,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       toast({
         title: "Logged in",
         description: `Welcome back, ${demoUser.name}!`,
+      });
+      return;
+    }
+    
+    // Check against registered users
+    const registeredUser = registeredUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
+    
+    if (registeredUser && password === 'password') {
+      setUser(registeredUser);
+      toast({
+        title: "Logged in",
+        description: `Welcome back, ${registeredUser.name}!`,
       });
     } else {
       throw new Error('Invalid email or password');
@@ -74,13 +97,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Check if email already exists
+    // Check if email already exists in demo users
     if (DEMO_USERS.some(u => u.email.toLowerCase() === email.toLowerCase())) {
       throw new Error('Email already in use');
     }
     
-    // In a real app, we'd create a new user in the database
-    // For demo, we'll just create a new user object and log in
+    // Check if email already exists in registered users
+    if (registeredUsers.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+      throw new Error('Email already in use');
+    }
+    
+    // Create new user
     const newUser: User = {
       id: `user-${Date.now()}`,
       name,
@@ -88,7 +115,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isAdmin: false
     };
     
+    // Add to registered users list
+    setRegisteredUsers([...registeredUsers, newUser]);
+    
+    // Log in the new user
     setUser(newUser);
+    
     toast({
       title: "Account created",
       description: `Welcome, ${name}!`,

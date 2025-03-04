@@ -47,6 +47,19 @@ const Account = () => {
             </div>
           </div>
           
+          {!user.isAdmin && (
+            <div className="bg-card rounded-lg shadow-sm p-6 mb-6">
+              <h2 className="text-xl font-semibold mb-4">My Orders</h2>
+              <p className="mb-4">View and manage all your orders in one place.</p>
+              <Button
+                onClick={() => navigate('/customer-dashboard')}
+                className="mr-4"
+              >
+                Go to Dashboard
+              </Button>
+            </div>
+          )}
+          
           {user.isAdmin && (
             <div className="bg-card rounded-lg shadow-sm p-6 mb-6">
               <h2 className="text-xl font-semibold mb-4">Admin Panel</h2>
