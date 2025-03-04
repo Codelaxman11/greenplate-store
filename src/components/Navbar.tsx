@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Menu, X, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,6 @@ const Navbar = () => {
   
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-  // Log cart updates for debugging
   useEffect(() => {
     console.log('Cart updated in Navbar:', cartItems);
     console.log('Total items:', totalItems);
@@ -44,12 +43,8 @@ const Navbar = () => {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'navbar-blur py-2 shadow-sm' : 'py-4'}`}>
       <div className="container-custom flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <span className="font-semibold text-xl lg:text-2xl">Aahaar</span>
-        </Link>
+        <Logo />
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <Link to="/" className="link-hover font-medium">Home</Link>
           <Link to="/products" className="link-hover font-medium">Shop</Link>
@@ -57,7 +52,6 @@ const Navbar = () => {
           <Link to="/about" className="link-hover font-medium">About</Link>
         </nav>
 
-        {/* Desktop Icons */}
         <div className="hidden md:flex items-center space-x-4">
           {user ? (
             <div className="flex items-center space-x-4">
@@ -87,7 +81,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
           <Link to="/cart" className="relative group">
             <ShoppingCart size={22} className="transition-transform group-hover:scale-110" />
@@ -107,7 +100,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div 
         className={`fixed inset-0 bg-background z-40 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}
         style={{ top: '60px' }}
